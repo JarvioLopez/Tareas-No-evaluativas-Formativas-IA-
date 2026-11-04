@@ -1,0 +1,23 @@
+cmake_minimum_required(VERSION 3.20)
+project(PracticaSTL LANGUAGES CXX)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
+
+add_executable(ejercicio1_vector_ordenamiento ejercicio1_vector_ordenamiento.cpp)
+add_executable(ejercicio2_promedio_mayor ejercicio2_promedio_mayor.cpp)
+add_executable(ejercicio3_lista_tareas ejercicio3_lista_tareas.cpp)
+add_executable(reto_extra_estadisticas reto_extra_estadisticas.cpp)
+
+if(MSVC)
+    target_compile_options(ejercicio1_vector_ordenamiento PRIVATE /W4 /permissive-)
+    target_compile_options(ejercicio2_promedio_mayor PRIVATE /W4 /permissive-)
+    target_compile_options(ejercicio3_lista_tareas PRIVATE /W4 /permissive-)
+    target_compile_options(reto_extra_estadisticas PRIVATE /W4 /permissive-)
+else()
+    target_compile_options(ejercicio1_vector_ordenamiento PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(ejercicio2_promedio_mayor PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(ejercicio3_lista_tareas PRIVATE -Wall -Wextra -Wpedantic)
+    target_compile_options(reto_extra_estadisticas PRIVATE -Wall -Wextra -Wpedantic)
+endif()
