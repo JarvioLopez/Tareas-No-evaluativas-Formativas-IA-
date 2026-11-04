@@ -1,0 +1,100 @@
+==========================================================================
+ANALISIS EXPLORATORIO DE EMPLEADOS CON PANDAS
+==========================================================================
+
+[1] Carga y vista previa del archivo Excel
+Dimensiones: 500 filas x 4 columnas
+  Nombre      Apellidos  Edad  Salario ($)
+  Albert Martinez Lopez    50         5120
+  Albert Chavez Salazar    32         2590
+  Sandra   Rojas Medina    57         2940
+Fernando   Jimenez Vega    64         4200
+  Monica Castillo Ramos    49         3900
+  Darius Russell Harper    57         3210
+   Roger     Tyler Best    36         3560
+Patricia Chavez Salazar    61         3710
+
+[2] Información general del DataFrame
+<class 'pandas.DataFrame'>
+RangeIndex: 500 entries, 0 to 499
+Data columns (total 4 columns):
+ #   Column       Non-Null Count  Dtype
+---  ------       --------------  -----
+ 0   Nombre       500 non-null    str  
+ 1   Apellidos    500 non-null    str  
+ 2   Edad         500 non-null    int64
+ 3   Salario ($)  500 non-null    int64
+dtypes: int64(2), str(2)
+memory usage: 15.8 KB
+
+[3] Valores faltantes por columna
+Nombre         0
+Apellidos      0
+Edad           0
+Salario ($)    0
+
+[4] Limpieza y columnas calculadas
+Columnas normalizadas: ['nombre', 'apellidos', 'edad', 'salario_usd', 'nombre_completo', 'grupo_edad', 'nivel_salarial']
+Registros útiles: 500
+
+[5] Estadísticas descriptivas de variables numéricas
+         edad  salario_usd
+count  500.00       500.00
+mean    44.15      3585.46
+std     15.28      1166.64
+min     18.00      1500.00
+25%     30.00      2692.50
+50%     45.00      3640.00
+75%     57.00      4362.50
+max     70.00      6820.00
+
+[6] Resumen general del salario
+count      500.00
+mean      3585.46
+median    3640.00
+min       1500.00
+max       6820.00
+std       1166.64
+
+[7] Resumen salarial por grupo de edad
+            cantidad  salario_promedio  salario_mediano  salario_minimo  salario_maximo  salario_desviacion
+grupo_edad                                                                                                 
+18-29            117           2496.75           2290.0          1500.0          4800.0              816.63
+30-39             84           3025.95           2970.0          1500.0          4620.0              814.88
+40-49             95           3582.74           3670.0          1580.0          5630.0              887.57
+50-59            101           4175.15           4050.0          2590.0          6340.0              807.26
+60-70            103           4702.72           4770.0          2150.0          6820.0              878.96
+
+[8] Tabla dinámica: grupo de edad por nivel salarial
+nivel_salarial  Alto  Bajo  Medio
+grupo_edad                       
+18-29              4    71     42
+30-39              6    32     46
+40-49             17    18     60
+50-59             35     2     64
+60-70             63     2     38
+
+[9] Analisis de Relación entre edad y salario
+Coeficiente de correlación de Pearson: 0.722
+
+[10] Respuestas a las preguntas de análisis
+Edad promedio: 44.1 años
+Salario promedio: $3,585.46
+Salario mediano: $3,640.00
+Grupo con mayor salario promedio: 60-70 ($4,702.72)
+Grupo con mayor dispersión salarial: 40-49 (desviación estándar $887.57)
+La media y la mediana pueden diferir porque la media es sensible a salarios extremos, mientras que la mediana representa el valor central.
+La edad explica parcialmente el salario: la correlación es 0.722, por lo que existen otros factores no incluidos en el dataset.
+
+[11] Resultados exportados: salidas\resumen_empleados.xlsx
+
+[12] Gráficos generados
+histograma: salidas\graficos\histograma_salarios.png
+dispersion: salidas\graficos\edad_vs_salario.png
+barras: salidas\graficos\promedio_grupo_edad.png
+boxplot: salidas\graficos\boxplot_salarios.png
+correlacion: salidas\graficos\correlacion.png
+dashboard: salidas\graficos\dashboard_empleados.png
+
+[13] Conclusión ejecutiva
+Se analizaron 500 empleados con una edad promedio de 44.1 años. El salario promedio es de $3,585.46 y la mediana de $3,640.00. El grupo 60-70 concentra el mayor salario promedio, mientras que la correlación entre edad y salario es 0.722. Esto sugiere una relación positiva alta: la edad aporta información, pero no determina por sí sola el salario. El dataset es ficticio y no incorpora experiencia, cargo, ubicación ni antigüedad, por lo que sus hallazgos son exploratorios.
